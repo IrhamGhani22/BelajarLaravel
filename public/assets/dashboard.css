@@ -1,0 +1,68 @@
+body {
+    background: #252733;
+}
+
+.garis {
+    border: 1px solid #007bff;
+    width: 99%;
+    opacity: 0.5;
+}
+
+.aktif {
+    border-bottom: 3px solid #007bff;
+}
+
+.profil {
+    border-bottom: 1px solid rgb(46, 46, 46);
+}
+
+.navs {
+    height: 3000px;
+    position: fixed;
+    left: 0;
+    z-index: 1;
+    background: #2b3043;
+}
+
+.content {
+    margin-left: 15%;
+}
+
+.tengah-keluar {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.tengah-keluar:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+
+.tengah-keluar:hover:after {
+    width: 100%;
+    background: #007bff;
+}
+
+.jumbotron {
+    /* background: url(img/bg.jpg);
+    background-size: cover; */
+    height: 145%;
+}
+
+.table {
+    background: #252733;
+}
+
+
+/* .jumbotron {
+    background: url(../assets/img/smk1.jpg);
+    background-size: cover;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000000c4;
+} */
