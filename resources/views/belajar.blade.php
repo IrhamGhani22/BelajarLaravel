@@ -67,7 +67,19 @@
             </h1>
             <hr style=" border: 1px solid white; width: 97%; ">
 
-            <center>
+                @if(session('success'))
+                <div class="alert alert-success">
+                    <i class="fas fa-check"></i>  {{session('success')}}
+                </div>
+                @endif
+
+                @if(session('error'))
+                <div class="alert alert-error">
+                    <i class="fas fa-times"></i>  {{session('error')}}
+                </div>
+                @endif
+
+                <center>
                 <table class=" table table-bordered table-dark " style=" width: 98%; ">
                     <thead>
                         <tr>

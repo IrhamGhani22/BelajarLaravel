@@ -36,6 +36,15 @@ class SiswaController extends Controller
 
     public function store(Request $request)
     {
+
+        $rule = [
+            'nis'            => 'required|numeric',
+            'nama_lengkap'   => 'required|string',
+            'jenis_kelamin'  => 'required',
+            'golongan_darah' => 'required'
+        ];
+        $this->validate($request, $rule);
+
         $input = $request->all();
         unset($input['_token']);
         $status = \DB::table('data_siswa')->insert($input);

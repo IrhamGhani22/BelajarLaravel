@@ -58,3 +58,9 @@ body {
 .table {
     background: #252733;
 }
+
+.alert {
+    margin-left: 12px;
+    width: 97.8%;
+    border-radius: 0;
+}
