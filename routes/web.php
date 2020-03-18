@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/belajar', "SiswaController@index");
@@ -38,6 +38,6 @@ Route::get('/siswa', 'SiswaController@index');
 Route::get('/siswa/create', 'SiswaController@create');
 Route::post('/siswa', 'SiswaController@store');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
