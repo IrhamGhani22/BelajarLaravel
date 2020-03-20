@@ -64,3 +64,36 @@ body {
     width: 97.8%;
     border-radius: 0;
 }
+
+.cari {
+    background: #252733;
+    height: 40px;
+    width: 50px;
+    border-radius: 50px;
+    border-right: none;
+}
+
+.cari:focus {
+    background: #252733;
+}
+
+.input-group-text {
+    border-radius: 50px;
+    background: #252733;
+    border-left: none;
+}
+
+.pegi {
+    background: #252733;
+    color: white;
+}
+
+.pegi:hover {
+    background: #007bff;
+    color: white;
+}
+
+.peringatan {
+    margin-left: 8px;
+    width: 99.2%;
+}

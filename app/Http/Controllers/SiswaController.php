@@ -26,7 +26,7 @@ class SiswaController extends Controller
         $data['siswa'] = DB::table('data_siswa')
             ->orderBy('jenis_kelamin')
             ->get();
-        return view('belajar', $data);
+        return view('DataSiswa', $data);
     }
 
     public function create()
@@ -38,7 +38,7 @@ class SiswaController extends Controller
     {
 
         $rule = [
-            'nis'            => 'required|numeric',
+            'nis'            => 'required|numeric|unique:data_siswa',
             'nama_lengkap'   => 'required|string',
             'jenis_kelamin'  => 'required',
             'golongan_darah' => 'required'

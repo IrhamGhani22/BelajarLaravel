@@ -35,14 +35,14 @@
                         <i class=" fas fa-tachometer-alt text-white ml-4 " style=" font-size: 145%; "></i><a class=" nav-link d-inline text-white " href=" {{url('/')}} ">DASHBOARD</a>
                     </h6>
                 </li>
-                <li class="nav-item mt-1 pt-1 aktif">
+                <li class="nav-item mt-1 pt-1 tengah-keluar">
                     <h6>
-                        <i class="fas fa-users text-white ml-4 " style="font-size: 145%; "></i><a class="nav-link d-inline text-white " href="{{url('/belajar')}}">DATA SISWA</a>
+                        <i class="fas fa-users text-white ml-4 " style="font-size: 145%; "></i><a class="nav-link d-inline text-white " href="{{url('/siswa')}}">DATA SISWA</a>
                     </h6>
                 </li>
                 <li class="nav-item mb-2 mt-2 pt-2 profil pb-2 tengah-keluar">
                     <h6>
-                        <i class="fas fa-chalkboard-teacher text-white ml-4 " style="font-size: 145%; "></i><a class="nav-link d-inline text-white " href="{{url('/DataKelas')}}">DATA KELAS</a>
+                        <i class="fas fa-chalkboard-teacher text-white ml-4 " style="font-size: 145%; "></i><a class="nav-link d-inline text-white " href="{{url('/Kelas')}}">DATA KELAS</a>
                     </h6>
                 </li>
                 <li class="nav-item pt-2 pb-2 mt-2  tengah-keluar">
