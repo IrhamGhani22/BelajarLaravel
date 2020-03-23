@@ -39,4 +39,46 @@ class KelasController extends Controller
             return redirect('/kelas/create')->with('error', 'Data gagal ditambahkan');
         }
     }
+
+    public function edit(Request $request,  $id_kelas)
+    {
+        $data['kelas'] =  \DB::table('t_kelas')->where('id_kelas', $id_kelas)->first();
+        return view('kelas.form', $data);
+    }
+
+    public function update(Request $request, $id_kelas)
+    {
+
+        $rule = [
+            'nama_kelas' => 'required|bail',
+            'jurusan'    => 'required',
+            'ruangan'    => 'required',
+            'wali_kelas' => 'required|min:3'
+        ];
+        $this->validate($request, $rule);
+
+        $input = $request->all();
+        unset($input['_token']);
+        unset($input['_method']);
+
+        $status = \DB::table('t_kelas')->where('id_kelas', $id_kelas)->update($input);
+
+        if ($status) {
+            return redirect('/kelas')->with('success', 'Data berhasil ditambahkan');
+        } else {
+            return redirect('/kelas/create')->with('error', 'Data gagal ditambahkan');
+        }
+    }
+
+    public function destroy(Request $request, $id_kelas)
+    {
+
+        $status = \DB::table('t_kelas')->where('id_kelas', $id_kelas)->delete();
+
+        if ($status) {
+            return redirect('/kelas')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect('/kelas/create')->with('error', 'Data gagal dihapus');
+        }
+    }
 }

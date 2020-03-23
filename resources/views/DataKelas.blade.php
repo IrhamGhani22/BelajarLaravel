@@ -76,17 +76,19 @@
                             <td class="text-center">{{ $row->ruangan }}</td>
                             <td >{{ $row->wali_kelas }}</td>
                             <td class="text-center">
-                                <a href="#">
+                                <a href="{{ url('/kelas/' . $row->id_kelas . '/edit') }}">
                                     <button class="btn btn-success "><i class="fas fa-edit text-white"></i>
                                     </button>
                                 </a>
                             </td>
                             <td class="text-center">
-                                <a href="#">
-                                    <button class="btn btn-danger ">
+                                <form action="{{ url('/kelas', $row->id_kelas) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger ">
                                         <i class="fas fa-trash-alt text-white"></i>
                                     </button>
-                                </a>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

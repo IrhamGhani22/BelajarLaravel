@@ -34,10 +34,16 @@ Route::get('/ViewTiga', 'SiswaController@coba3');
 Route::get('/siswa', "SiswaController@index");
 Route::get('/siswa/create', 'SiswaController@create');
 Route::post('/siswa', 'SiswaController@store');
+Route::get('/siswa/{id}/edit', 'SiswaController@edit');
+Route::patch('/siswa/{id}', 'SiswaController@update');
+Route::delete('/siswa/{id}', 'SiswaController@destroy');
 
 Route::get('/kelas', "KelasController@index");
 Route::get('/kelas/create', 'KelasController@create');
 Route::post('/kelas', 'KelasController@store');
+Route::get('/kelas/{id_kelas}/edit', 'KelasController@edit');
+Route::patch('/kelas/{id_kelas}', 'KelasController@update');
+Route::delete('/kelas/{id_kelas}', 'KelasController@destroy');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

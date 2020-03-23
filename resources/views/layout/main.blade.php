@@ -42,7 +42,7 @@
                 </li>
                 <li class="nav-item mb-2 mt-2 pt-2 profil pb-2 tengah-keluar">
                     <h6>
-                        <i class="fas fa-chalkboard-teacher text-white ml-4 " style="font-size: 145%; "></i><a class="nav-link d-inline text-white " href="{{url('/Kelas')}}">DATA KELAS</a>
+                        <i class="fas fa-chalkboard-teacher text-white ml-4 " style="font-size: 145%; "></i><a class="nav-link d-inline text-white " href="{{url('/kelas')}}">DATA KELAS</a>
                     </h6>
                 </li>
                 <li class="nav-item pt-2 pb-2 mt-2  tengah-keluar">
