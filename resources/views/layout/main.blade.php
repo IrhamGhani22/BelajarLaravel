@@ -16,7 +16,7 @@
         <div class=" col-md-2 side">
             <ul class=" nav flex-column navs">
                 <li class=" nav-item bg-primary mb-3 ">
-                    <a class=" navbar-brand nav-link text-dark" href=" # ">
+                    <a class=" navbar-brand nav-link text-dark text-decoration-none" href="{{url('/')}}">
                         <h4>SMKN 4 BDG</h4>
                     </a>
                 </li>

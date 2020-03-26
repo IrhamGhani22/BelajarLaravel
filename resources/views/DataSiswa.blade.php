@@ -28,7 +28,7 @@
                     <div class=" row no-gutterss " style=" width: 101%; ">
                         <div class=" col-md-6 mt-2 ">
                             <span class=" text-white ml-3 ">Show</span>
-                            <select class=" form-control form-control-sm d-inline " style=" width: 11.5%; background: #252733; ">
+                            <select class=" form-control form-control-sm d-inline text-white" style=" width: 11.5%; background: #252733; ">
                                 <option>10</option>
                                 <option>25</option>
                                 <option>50</option>
@@ -38,7 +38,7 @@
                         </div>
                         <div class=" col-md-6 ">
                             <div class=" input-group mb-2 w-50 float-right ">
-                                <input type=" text " class=" form-control cari " placeholder=" Search " aria-label=" Recipient 's username" aria-describedby="basic-addon2">
+                                <input type=" text " class=" form-control cari text-white" placeholder=" Search " aria-label=" Recipient 's username" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                     <span class="input-group-text" id="basic-addon2">
                                         <a class="text-decoration-none text-secondary" href=""><i

@@ -9,7 +9,9 @@ class KelasController extends Controller
 {
     public function index()
     {
-        $data['kelas'] = DB::table('t_kelas')->get();
+        $data['kelas'] = DB::table('t_kelas')
+            ->orderBy('nama_kelas')
+            ->get();
         return view('DataKelas', $data);
     }
 
@@ -24,8 +26,8 @@ class KelasController extends Controller
         $rule = [
             'nama_kelas' => 'required|bail|unique:t_kelas',
             'jurusan'    => 'required',
-            'ruangan'    => 'required|alpha_num',
-            'wali_kelas' => 'required|min:3|alpha'
+            'ruangan'    => 'required',
+            'wali_kelas' => 'required|min:3'
         ];
         $this->validate($request, $rule);
 
