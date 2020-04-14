@@ -30,7 +30,7 @@
             </div>
             @endif
               
-            @if (count($errors)>0)
+            {{-- @if (count($errors)>0)
             <div class="alert alert-danger peringatan">
                 <strong><i class="fas fa-exclamation-triangle text-warning"></i> Perhatian</strong>
                 <br>
@@ -40,7 +40,7 @@
                     @endforeach
                 </ul>
             </div>
-            @endif
+            @endif --}}
 
             <div class="card border-0 ml-2" style="background:  #252733;;">
                 <div class="card-body border" >
@@ -55,40 +55,65 @@
                 @csrf
 
                 @if(!empty($siswa))
-                    @method('PATCH')
+                    @method('PATCH') 
                 @endif
 
                 <div class="form-group">
-                    <label for="">NIS</label>
-                    <input name="nis" type="number" class="form-control text-white" style="background: #252733;"
+                    <label for="nis">NIS</label>
+                    <input name="nis" id="nis" type="number" class="form-control  @error('nis') is-invalid @enderror" style="background: #252733; color:gray;"
                           value="{{old('nis', @$siswa->nis)}}" placeholder="NIS" <?= $disabled ?> >
+                    @error('nis')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
                   
                 <div class="form-group">
-                    <label for="">Nama Lengkap</label>
-                    <input name="nama_lengkap" type="text" class="form-control text-white"
-                          value="{{old('nama_lengkap', @$siswa->nama_lengkap)}}" placeholder="Nama Lengkap"  style="background: #252733;">
+                    <label for="nama">Nama Lengkap</label>
+                    <input name="nama_lengkap" id="nama" type="text" class="form-control @error('nama_lengkap') is-invalid @enderror"
+                          value="{{old('nama_lengkap', @$siswa->nama_lengkap)}}" placeholder="Nama Lengkap"  style="background: #252733; color:gray;">
+                     @error('nama_lengkap')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <label for="">Jenis Kelamin</label><br>
                 <div class="custom-control custom-radio mb-1">
-                    <input type="radio" id="customRadio1" name="jenis_kelamin" class="custom-control-input" value="L" {{old('jenis_kelamin', @$siswa->jenis_kelamin) == 'L' ? 'checked' : ''}}>
+                    <input type="radio" id="customRadio1" name="jenis_kelamin" class="custom-control-input @error('jenis_kelamin') is-invalid @enderror" value="L" {{old('jenis_kelamin', @$siswa->jenis_kelamin) == 'L' ? 'checked' : ''}}">                 
                     <label class="custom-control-label" for="customRadio1">L</label>
+                    @error('jenis_kelamin')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
                  <div class="custom-control custom-radio mb-2">
-                    <input type="radio" id="customRadio2" name="jenis_kelamin" class="custom-control-input" value="P" {{old('jenis_kelamin', @$siswa->jenis_kelamin) == 'P' ? 'checked' : ''}}>
+                    <input type="radio" id="customRadio2" name="jenis_kelamin" class="custom-control-input @error('jenis_kelamin') is-invalid @enderror" value="P" {{old('jenis_kelamin', @$siswa->jenis_kelamin) == 'P' ? 'checked' : ''}}>
                     <label class="custom-control-label" for="customRadio2">P</label>
+                    @error('jenis_kelamin') 
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Golongan Darah</label>
-                      <select class="form-control text-white" name="golongan_darah" style="background: #252733;">
+                    <label for="goldar">Golongan Darah</label>
+                      <select class="form-control @error('golongan_darah') is-invalid @enderror" id="goldar" name="golongan_darah" style="background: #252733; color:gray;">
                         <option value=""   {{ old('golongan_darah', @$siswa->golongan_darah) == '' ? 'selected' : '' }}>- Pilih Goldar -</option>
                         <option value="A"  {{ old('golongan_darah', @$siswa->golongan_darah) == 'A' ? 'selected' : '' }} >A</option>
                         <option value="B"  {{ old('golongan_darah', @$siswa->golongan_darah) == 'B' ? 'selected' : '' }}>B</option>
                         <option value="AB" {{ old('golongan_darah', @$siswa->golongan_darah) == 'AB' ? 'selected' : '' }}>AB</option>
                         <option value="O"  {{ old('golongan_darah', @$siswa->golongan_darah) == 'O' ? 'selected' : '' }}>O</option>
                       </select>
+                      @error('golongan_darah')
+                      <div class="invalid-feedback">
+                          {{$message}}
+                      </div>
+                      @enderror
                  </div>
                   <br>
                   <button type="submit" class="btn btn-primary">SAVE</button>

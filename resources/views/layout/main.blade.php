@@ -60,9 +60,9 @@
 
         @yield('container')
 
-    <script src="{{URL::asset('/asset/bootstrap/js/jquery-3.4.1.min.js')}}"></script>
-    <script src="{{URL::asset('/asset/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{URL::asset('/asset/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('/assets/bootstrap/js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{URL::asset('/assets/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{URL::asset('/assets/bootstrap/js/bootstrap.min.js')}}"></script>
 
 </body>
 </html>

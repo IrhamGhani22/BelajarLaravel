@@ -23,10 +23,9 @@ class SiswaController extends Controller
 
     public function index()
     {
-        $data['siswa'] = DB::table('data_siswa')
-            ->orderBy('jenis_kelamin')
-            ->get();
-        return view('DataSiswa', $data);
+        $siswa = DB::table('data_siswa')->paginate(5);
+
+        return view('DataSiswa', compact('siswa'));
     }
 
     public function create()

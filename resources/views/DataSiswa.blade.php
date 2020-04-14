@@ -90,10 +90,17 @@
                         @endforeach
                     </tbody>
                     <tfoot>
+                     
                         <tr>
-                            <td scope="row" colspan="9">
-                                <nav aria-label="Page navigation example ">
-                                    <ul class="pagination  mb-1 float-right ">
+                            <td scope="row" colspan="9">                                
+                                    {{ $siswa->links() }}
+                                    <script>
+                                        $('.pagination').addClass('pagination');
+                                        $('.pagination li').addClass('page-item');
+                                        $('.pagination li a').addClass('page-link');
+                                        $('.pagination span').addClass('page-link');                            
+                                     </script>
+                                    {{-- <ul class="pagination  mb-1 float-right ">
                                         <li class="page-item "><a class="page-link pegi" href="#">Previous</a>
                                         </li>
                                         <li class="page-item active"><a class="page-link pegi" href="#">1</a>
@@ -101,8 +108,7 @@
                                         <li class="page-item"><a class="page-link pegi" href="#">2</a></li>
                                         <li class="page-item"><a class="page-link pegi" href="#">3</a></li>
                                         <li class="page-item"><a class="page-link pegi" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
+                                    </ul> --}}
                             </td>
                         </tr>
                     </tfoot>

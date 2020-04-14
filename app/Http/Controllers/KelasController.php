@@ -9,10 +9,9 @@ class KelasController extends Controller
 {
     public function index()
     {
-        $data['kelas'] = DB::table('t_kelas')
-            ->orderBy('nama_kelas')
-            ->get();
-        return view('DataKelas', $data);
+        $kelas = DB::table('t_kelas')->paginate(5);
+
+        return view('DataKelas', compact('kelas'));
     }
 
     public function create()

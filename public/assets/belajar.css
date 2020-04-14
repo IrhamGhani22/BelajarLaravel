@@ -83,14 +83,19 @@ body {
     border-left: none;
 }
 
-.pegi {
+.page-link {
     background: #252733;
     color: white;
 }
 
-.pegi:hover {
+.page-link:hover {
     background: #007bff;
     color: white;
+}
+
+.pagination {
+    float: right;
+    margin-bottom: 1px;
 }
 
 .peringatan {
