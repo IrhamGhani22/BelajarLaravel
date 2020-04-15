@@ -95,4 +95,17 @@ class SiswaController extends Controller
             return redirect('/siswa/create')->with('error', 'Data gagal dihapus');
         }
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+
+        $siswa = DB::table('data_siswa')
+            ->where('nama_lengkap', 'like', "%" . $search . "%")
+            ->orWhere('jenis_kelamin', 'like', "%" . $search . "%")
+            ->orWhere('golongan_darah', 'like', "%" . $search . "%")
+            ->paginate(5);
+
+        return view('DataSiswa', compact('siswa'));
+    }
 }

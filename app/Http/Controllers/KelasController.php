@@ -82,4 +82,17 @@ class KelasController extends Controller
             return redirect('/kelas/create')->with('error', 'Data gagal dihapus');
         }
     }
+    public function search(Request $request)
+    {
+        $search = $request->search;
+
+        $kelas = DB::table('t_kelas')
+            ->where('nama_kelas', 'like', "%" . $search . "%")
+            ->orWhere('jurusan', 'like', "%" . $search . "%")
+            ->orWhere('ruangan', 'like', "%" . $search . "%")
+            ->orWhere('wali_kelas', 'like', "%" . $search . "%")
+            ->paginate(5);
+
+        return view('DataKelas', compact('kelas'));
+    }
 }

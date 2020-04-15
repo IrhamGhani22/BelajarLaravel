@@ -11,6 +11,9 @@
                 <a class=" btn btn-dark ml-2 " style=" margin-top: -10px; background: #252733; " href="{{ url('/kelas/create') }}">
                     <h4 class=" d-inline "> <i class=" fas fa-plus "></i></h4>
                 </a>
+                <a class=" btn btn-dark " style=" margin-top: -10px; margin-left:60%; background: #252733; " href="{{ url('/kelas') }}">
+                    <h4 class=" d-inline "><i class="fas fa-sync-alt"></i></h4>
+                </a>
             </h1>
             <hr style=" border: 1px solid white; width: 97%; ">
 
@@ -26,7 +29,7 @@
             </div>
             @endif
 
-            <form action=" ">
+            <form action="{{ url('/kelas/search')}}" method="GET">
                 <div class=" row no-gutterss " style=" width: 101%; ">
                     <div class=" col-md-6 mt-2 ">
                         <span class=" text-white ml-3 ">Show</span>
@@ -40,12 +43,12 @@
                     </div>
                     <div class=" col-md-6 ">
                         <div class=" input-group mb-2 w-50 float-right ">
-                            <input type=" text " class=" form-control cari " placeholder=" Search " aria-label=" Recipient 's username" aria-describedby="basic-addon2">
+                            <input type=" text " name="search" class=" form-control cari text-white" placeholder=" Search " value="{{ old('search') }}" aria-label=" Recipient 's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">
+                                <button type="submit" class="input-group-text" id="basic-addon2">
                                     <a class="text-decoration-none text-secondary" href=""><i
                                             class="fas fa-search"></i></a>
-                                </span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -96,7 +99,8 @@
                     <tfoot>
                         <tr>
                             <td scope="row" colspan="9">
-                                {{ $kelas->links() }}
+                                {{-- {!! $kelas->appends(Request::except('page'))->render() !!} --}}
+                                {{ $kelas->appends(Request::all())->links() }}
                                     <script>
                                         $('.pagination').addClass('pagination');
                                         $('.pagination li').addClass('page-item');
