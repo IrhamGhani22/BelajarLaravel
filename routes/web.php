@@ -37,6 +37,7 @@ Route::post('/siswa', 'SiswaController@store');
 Route::get('/siswa/{id}/edit', 'SiswaController@edit');
 Route::patch('/siswa/{id}', 'SiswaController@update');
 Route::delete('/siswa/{id}', 'SiswaController@destroy');
+Route::get('/siswa/delete/{id}', 'SiswaController@destroy');
 Route::get('/siswa/search', "SiswaController@search");
 
 Route::get('/kelas', "KelasController@index");

@@ -18,7 +18,7 @@
     ?>
 
     <div class=" col-md-10 content ">
-        <form  action="{{ url('kelas', @$kelas->id_kelas)}}" method="POST">
+        <form  action="{{ url('kelas', @$kelas->id_kelas)}}" method="POST" >
             <h1 class=" text-white mt-2 ml-2">
                 <?= $title ?>
             </h1>

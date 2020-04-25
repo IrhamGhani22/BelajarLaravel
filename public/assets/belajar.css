@@ -1,5 +1,6 @@
 body {
     background: #252733;
+    overflow-x: hidden;
 }
 
 .garis {
@@ -101,4 +102,27 @@ body {
 .peringatan {
     margin-left: 8px;
     width: 99.2%;
+}
+
+.box {
+    width: 260px;
+    height: 260px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+}
+
+.img-edit {
+    position: absolute;
+    top: 0;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+}
+
+.add {
+    margin-left: 150px;
+    margin-top: 300px;
+    position: absolute;
+    top: 0;
 }

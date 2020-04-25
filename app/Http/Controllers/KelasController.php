@@ -65,9 +65,9 @@ class KelasController extends Controller
         $status = \DB::table('t_kelas')->where('id_kelas', $id_kelas)->update($input);
 
         if ($status) {
-            return redirect('/kelas')->with('success', 'Data berhasil ditambahkan');
+            return redirect('/kelas')->with('success', 'Data berhasil diubah');
         } else {
-            return redirect('/kelas/create')->with('error', 'Data gagal ditambahkan');
+            return redirect('/kelas/create')->with('error', 'Data gagal diubah');
         }
     }
 

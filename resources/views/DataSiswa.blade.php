@@ -5,7 +5,7 @@
 @section('container')
 
         <div class=" col-md-10 content ">
-            <h1 class=" text-white mt-2 ml-2 "> <i class=" fas fa-users   mr-2 mt-3 "></i> DATA SISWA
+            <h1 class=" text-white mt-2 ml-2 "> <i class=" fas fa-users ml-2 mr-2 mt-3 "></i> DATA SISWA
                 <a class=" btn btn-dark ml-2 " style=" margin-top: -10px; background: #252733; " href="{{ url('/siswa/create') }}">
                     <h4 class=" d-inline "> <i class=" fas fa-plus "></i></h4>
                 </a>
@@ -15,7 +15,9 @@
             </h1>
             <hr style=" border: 1px solid white; width: 97%; ">
 
-                @if(session('success'))
+            <div class="flash-data" data-flashdata="{{session('success')}}"></div>
+
+                {{-- @if(session('success'))
                 <div class="alert alert-success">
                     <i class="fas fa-check"></i>  {{session('success')}}
                 </div>
@@ -25,9 +27,9 @@
                 <div class="alert alert-error">
                     <i class="fas fa-times"></i>  {{session('error')}}
                 </div>
-                @endif
+                @endif --}}
 
-                <form action="{{ url('/siswa/search')}}" method="GET">
+                <form action="{{ url('/siswa/search')}}" method="GET" >
                     <div class=" row no-gutterss " style=" width: 101%; ">
                         <div class=" col-md-6 mt-2 ">
                             <span class=" text-white ml-3 ">Show</span>
@@ -57,6 +59,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Foto</th>
                             <th>Nama Lengkap</th>
                             <th>Jenis Kelamin </th>
                             <th>Golongan Darah </th>
@@ -70,6 +73,7 @@
                         <tr>
                              {{-- <td>{{ isset($i) ? ++$i : $i = 1 }}</td> --}}
                             <td class="text-center">{{ $loop->iteration }}</td>
+                            <td width="120"> <img src="{{asset('assets/img/'.$row->file)}}" alt="" width="100" height="100"></td>
                             <td>{{ $row->nama_lengkap }}</td>
                             <td class="text-center">{{ $row->jenis_kelamin }}</td>
                             <td class="text-center">{{ $row->golongan_darah }}</td>
@@ -80,13 +84,15 @@
                                 </a>
                             </td>
                             <td class="text-center">
-                           <form action="{{ url('/siswa', $row->id) }}" method="POST">
+                           {{-- <form action="{{ url('/siswa', $row->id) }}" method="POST" id="form-delete" >
                             @method('DELETE')
-                            @csrf
-                                <button type="submit" class="btn btn-danger ">
+                            @csrf --}}
+                            <a href="/siswa/delete/{{$row->id}}" class="tombol-hapus">
+                                <button type="submit"   class="btn btn-danger">
                                     <i class="fas fa-trash-alt text-white"></i>
                                 </button>
-                            </form>
+                            </a>
+                            {{-- </form> --}}
                             </td>
                         </tr>
                         @endforeach
