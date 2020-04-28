@@ -9,7 +9,11 @@ class KelasController extends Controller
 {
     public function index()
     {
-        $kelas = DB::table('t_kelas')->paginate(5);
+        // $kelas = DB::table('t_kelas')->paginate(5);
+
+        // return view('DataKelas', compact('kelas'));
+
+        $kelas = \App\Kelas::paginate(5);
 
         return view('DataKelas', compact('kelas'));
     }
@@ -31,8 +35,11 @@ class KelasController extends Controller
         $this->validate($request, $rule);
 
         $input = $request->all();
-        unset($input['_token']);
-        $status = \DB::table('t_kelas')->insert($input);
+
+        // unset($input['_token']);
+        // $status = \DB::table('t_kelas')->insert($input);
+
+        $status = \App\Kelas::create($input);
 
         if ($status) {
             return redirect('/kelas')->with('success', 'Data berhasil ditambahkan');
@@ -43,8 +50,12 @@ class KelasController extends Controller
 
     public function edit(Request $request,  $id_kelas)
     {
-        $data['kelas'] =  \DB::table('t_kelas')->where('id_kelas', $id_kelas)->first();
-        return view('kelas.form', $data);
+        // $data['kelas'] =  \DB::table('t_kelas')->where('id_kelas', $id_kelas)->first();
+        // return view('kelas.form', $data);
+
+        $kelas = \App\Kelas::find($id_kelas);
+
+        return view('kelas.form', compact('kelas'));
     }
 
     public function update(Request $request, $id_kelas)
@@ -59,10 +70,13 @@ class KelasController extends Controller
         $this->validate($request, $rule);
 
         $input = $request->all();
-        unset($input['_token']);
-        unset($input['_method']);
+        // unset($input['_token']);
+        // unset($input['_method']);
 
-        $status = \DB::table('t_kelas')->where('id_kelas', $id_kelas)->update($input);
+        // $status = \DB::table('t_kelas')->where('id_kelas', $id_kelas)->update($input);
+
+        $kelas = \App\Kelas::find($id_kelas);
+        $status = $kelas->update($input);
 
         if ($status) {
             return redirect('/kelas')->with('success', 'Data berhasil diubah');
@@ -74,7 +88,10 @@ class KelasController extends Controller
     public function destroy(Request $request, $id_kelas)
     {
 
-        $status = \DB::table('t_kelas')->where('id_kelas', $id_kelas)->delete();
+        // $status = \DB::table('t_kelas')->where('id_kelas', $id_kelas)->delete();
+
+        $kelas = \App\Kelas::find($id_kelas);
+        $status = $kelas->delete();
 
         if ($status) {
             return redirect('/kelas')->with('success', 'Data berhasil dihapus');

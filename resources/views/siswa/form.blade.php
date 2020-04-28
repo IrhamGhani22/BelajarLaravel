@@ -1,6 +1,10 @@
 @extends('layout/main')
 
-@section('title', 'Form Tambah Data Siswa')
+@section('title', 'SMKN 4 BDG | PWPB 20')
+
+@section('style')
+    <link rel="stylesheet" href="{{ URL::asset('/assets/siswa.css')}}">
+@endsection
     
 @section('container')
 
@@ -148,4 +152,8 @@
 </div>
         
          
+@endsection
+
+@section('script')
+    <script src="{{ URL::asset('/assets/siswa.js')}}"></script>
 @endsection

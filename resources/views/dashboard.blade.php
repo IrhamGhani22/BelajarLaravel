@@ -1,6 +1,10 @@
 @extends('layout/main')
 
-@section('title', 'Dashboard')
+@section('title', 'SMKN 4 BDG | PWPB 20')
+
+@section('style')
+    <link rel="stylesheet" href="{{ URL::asset('/assets/dashboard.css')}}">
+@endsection
     
 @section('container')
 

@@ -1,8 +1,10 @@
-
-
 @extends('layout/main')
 
-@section('title', 'Form Tambah Data Kelas')
+@section('title', 'SMKN 4 BDG | PWPB 20')
+
+@section('style')
+    <link rel="stylesheet" href="{{ URL::asset('/assets/kelas.css')}}">
+@endsection
     
 @section('container')
 

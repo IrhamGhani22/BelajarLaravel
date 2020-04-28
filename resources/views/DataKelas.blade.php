@@ -1,6 +1,10 @@
 @extends('layout/main')
 
-@section('title', 'Data Kelas SMKN 4 Bandung ')
+@section('title', 'SMKN 4 BDG | PWPB 20')
+
+@section('style')
+    <link rel="stylesheet" href="{{ URL::asset('/assets/kelas.css')}}">
+@endsection
 
 @section('container')
 
@@ -17,7 +21,9 @@
             </h1>
             <hr style=" border: 1px solid white; width: 97%; ">
 
-            @if(session('success'))
+            <div class="flash-data" data-flashdata="{{session('success')}}"></div>
+
+            {{-- @if(session('success'))
             <div class="alert alert-success">
                 <i class="fas fa-check"></i>  {{session('success')}}
             </div>
@@ -27,7 +33,7 @@
             <div class="alert alert-error">
                 <i class="fas fa-times"></i>  {{session('error')}}
             </div>
-            @endif
+            @endif --}}
 
             <form action="{{ url('/kelas/search')}}" method="GET">
                 <div class=" row no-gutterss " style=" width: 101%; ">
@@ -85,13 +91,15 @@
                                 </a>
                             </td>
                             <td class="text-center">
-                                <form action="{{ url('/kelas', $row->id_kelas) }}" method="POST">
+                                {{-- <form action="{{ url('/kelas', $row->id_kelas) }}" method="POST">
                                     @method('DELETE')
-                                    @csrf
+                                    @csrf --}}
+                                <a href="/kelas/delete/{{$row->id_kelas}}" class="tombol-hapus">
                                     <button type="submit" class="btn btn-danger ">
                                         <i class="fas fa-trash-alt text-white"></i>
                                     </button>
-                                </form>
+                                </a>
+                                {{-- </form> --}}
                             </td>
                         </tr>
                         @endforeach
@@ -123,4 +131,8 @@
         </div>
     </div>
   
+@endsection
+
+@section('script')
+    <script src="{{ URL::asset('/assets/kelas.js')}}"></script>
 @endsection

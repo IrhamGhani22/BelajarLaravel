@@ -1,6 +1,10 @@
 @extends('layout/main')
 
-@section('title', 'Data Siswa SMKN 4 Bandung')
+@section('title', 'SMKN 4 BDG | PWPB 20')
+
+@section('style')
+    <link rel="stylesheet" href="{{ URL::asset('/assets/siswa.css')}}">
+@endsection
 
 @section('container')
 
@@ -125,4 +129,8 @@
         </div>
     </div>
         
+@endsection
+
+@section('script')
+    <script src="{{ URL::asset('/assets/siswa.js')}}"></script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use File;
 
 class SiswaController extends Controller
 {
@@ -42,7 +43,7 @@ class SiswaController extends Controller
 
         $rule = [
             'nis'            => 'required|numeric|unique:data_siswa',
-            'file'           => 'image',
+            'file'           => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             'nama_lengkap'   => 'required|string',
             'jenis_kelamin'  => 'required',
             'golongan_darah' => 'required'
@@ -81,12 +82,18 @@ class SiswaController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $data['siswa'] =  \DB::table('data_siswa')->find($id);
-        return view('siswa.form', $data);
+        // $data['siswa'] =  \DB::table('data_siswa')->find($id);
+        // return view('siswa.form', $data);
+
+        $siswa = \App\Siswa::find($id);
+
+        return view('siswa.form', compact('siswa'));
     }
+
 
     public function update(Request $request, $id)
     {
+
         $rule = [
             'nis'            => 'required|numeric',
             'file'           => '',
@@ -100,6 +107,7 @@ class SiswaController extends Controller
 
         $siswa = \App\Siswa::find($id);
         $status = $siswa->update($input);
+
 
         if ($request->hasFile('file')) {
             $request->file('file')->move('assets/img/', $request->file('file')->getClientOriginalName());
@@ -133,7 +141,11 @@ class SiswaController extends Controller
 
         // $status = \DB::table('data_siswa')->where('id', $id)->delete();
 
+
         $siswa = \App\Siswa::find($id);
+
+        File::delete('assets/img/' . $siswa->file);
+
         $status = $siswa->delete();
 
         if ($status) {

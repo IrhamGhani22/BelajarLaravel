@@ -46,6 +46,7 @@ Route::post('/kelas', 'KelasController@store');
 Route::get('/kelas/{id_kelas}/edit', 'KelasController@edit');
 Route::patch('/kelas/{id_kelas}', 'KelasController@update');
 Route::delete('/kelas/{id_kelas}', 'KelasController@destroy');
+Route::get('/kelas/delete/{id_kelas}', 'KelasController@destroy');
 Route::get('/kelas/search', "KelasController@search");
 
 // Route::get('/dashboard', function () {
